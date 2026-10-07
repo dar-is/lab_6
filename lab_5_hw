@@ -1,0 +1,21 @@
+#define _USE_MATH_DEFINES 
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+int main() 
+{
+    setlocale(LC_ALL, "RUS");
+
+    double x = 16.55 * pow(10, -3);
+    double y = -2.75;
+    double z = 0.15;
+
+
+    double beta = sqrt(10 * (cbrt(x) + pow(x, y + 2)))
+        * (pow(asin(z), 2) - fabs(x - y));
+
+    printf("beta = %.6f\n", beta);
+
+    system("pause");
+}
