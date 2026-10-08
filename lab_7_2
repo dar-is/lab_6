@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    float x, y;
+    char c;
+
+    printf("Введите выражение (например: 5+3): ");
+
+    scanf("%f%c%f", &x, &c, &y);
+
+    switch (c)
+    {
+        case '+':
+            printf("=%f", x + y);
+            break;
+
+        case '-':
+            printf("=%f", x - y);
+            break;
+
+        case '*':
+            printf("=%f", x * y);
+            break;
+
+        case '/':
+            if (y != 0)
+                printf("=%f", x / y);
+            else
+                printf("Ошибка: деление на ноль!");
+            break;
+
+        case '^':
+            printf("=%f", pow(x, y));
+            break;
+
+        default:
+            printf("Ошибка: неизвестная операция!");
+    }
+
+    return 0;
+}
