@@ -1,0 +1,178 @@
+==================lab_5_3==================
+#define _USE_MATH_DEFINES 
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+void check_conditions(int A, int B, int C)
+{
+    int usl_a, usl_b;
+    usl_a = (A % 2 == 0) != (B % 2 == 0);
+    usl_b = (A % 3 == 0) && (B % 3 == 0) && (C % 3 == 0);
+
+    printf("Условие а) выполнено (1 - да, 0 - нет): %d\n", usl_a);
+    printf("Условие б) выполнено (1 - да, 0 - нет): %d\n", usl_b);
+}
+
+int main(void)
+{
+    setlocale(LC_ALL, "RUS");
+
+    double a, b, y;
+    int A, B, C;
+    int usl_a, usl_b;
+
+    int p = 3;
+    double x = 4.1;
+
+    a = sqrt(p * x);
+    b = p * pow(x, 2) + sqrt(a);
+    y = pow(log(pow(b, 2)), 3) + a * x;
+
+    printf("a = %lf, b = %lf, y = %lf\n", a, b, y);
+
+    A = (int)a;
+    B = (int)b;
+    C = (int)y;
+
+    printf("A = %d, B = %d, C = %d\n", A, B, C);
+
+    check_conditions(A, B, C);
+
+    system("pause");
+}
+
+=================lab_5_hw===================
+#define _USE_MATH_DEFINES 
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+
+double calculate(double x, double y, double z)
+{
+    double beta;
+
+    beta = sqrt(10 * (cbrt(x) + pow(x, y + 2))) * (pow(asin(z), 2) - fabs(x - y));
+
+    return beta;
+
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+
+    double x = 16.55 * pow(10, -3);
+    double y = -2.75;
+    double z = 0.15;
+    double beta;
+
+
+    beta = calculate(x, y, z);
+
+    printf("beta = %.6f\n", beta);
+
+    system("pause");
+}
+
+
+=====================lab_6_1=================
+#define _CRT_SECURE_NO_DEPRECATE
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+int main() 
+{
+    setlocale(LC_ALL, "RUS");
+
+    int year;
+
+    printf("Введите год: ");
+
+    scanf("%d", &year);
+
+    if (year % 4 == 0) 
+    {
+        printf("Год %d является високосным.\n", year);
+    }
+    else 
+    {
+        printf("Год %d не является високосным.\n", year);
+    }
+
+    system("pause");
+}
+
+
+==================lab_6_2====================
+#define _CRT_SECURE_NO_DEPRECATE
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+double calculate(double x)
+{
+    return x <= 7 ? -3 * x + 9 : 1 / (x - 7);
+}
+
+int main(void)
+{
+    setlocale(LC_ALL, "RUS");
+
+    double x;
+
+    //
+    //   Контрольные примеры:
+    //
+    //   1) x = 5 (x <= 7):
+    //     F(5) = -3 * 5 + 9 = -6
+    //
+    //   2) x = 8 (x > 7):
+    //     F(8) = 1 / (8 - 7) = 1
+    //
+
+    printf("Введите x: ");
+    scanf("%lf", &x);
+
+    printf("F(%g) = %g\n", x, calculate(x));
+
+    system("pause");
+}
+
+=======================lab_6_3==================
+#define _CRT_SECURE_NO_DEPRECATE
+#include <stdio.h> 
+#include <time.h>
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+
+    int birth_year, current_year, age;
+    current_year = 2026;
+
+    printf("Введите год рождения: ");
+    scanf("%d", &birth_year);
+
+    {
+
+        age = current_year - birth_year;
+
+
+        printf("Результат: %d ", age);
+
+        if (age % 10 == 1 && age % 100 != 11) {
+            printf("год\n");
+        }
+        else if (age % 10 >= 2 && age % 10 <= 4 &&
+            (age % 100 < 10 || age % 100 >= 20)) {
+            printf("года\n");
+        }
+        else printf("лет\n");
+    }
+
+    system("pause");
+}
