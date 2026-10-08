@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+double calculateF(double x)
+{
+    return x <= 7 ? -3 * x + 9 : 1 / (x - 7);
+}
+
+int main(void)
+{
+    double x;
+
+    /*
+       Контрольные примеры:
+
+       1) x = 5 (x <= 7):
+          F(5) = -3 * 5 + 9 = -6
+
+       2) x = 8 (x > 7):
+          F(8) = 1 / (8 - 7) = 1
+    */
+
+    printf("Введите x: ");
+    scanf("%lf", &x);
+
+    printf("F(%g) = %g\n", x, calculateF(x));
+
+    return 0;
+}
