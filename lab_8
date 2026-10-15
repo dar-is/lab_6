@@ -1,0 +1,71 @@
+//////мое дз 6 лаб
+
+#include <stdio.h>
+int main() {
+    double x, y;
+    printf("Proverka prinadlezhnosti tochki zashtrihovannoy oblasti\n");
+    printf("Vvedite koordinaty x i y: ");
+    scanf("%lf %lf", &x, &y);
+    if (x >= 0 && y <= 0 &&
+        y <= -x && x * x + y * y <= 2) {
+        printf("Tochka prinadlezhit oblasti.\n");
+    } else {
+        printf("Tochka ne prinadlezhit oblasti.\n");
+    }
+    return 0;
+}
+/////lab8_1
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    int n;
+    
+    printf("Введите степень n: ");
+    scanf("%d", &n);
+
+    if (n < 0 || n > 30) {
+        printf("Ошибка: n должно быть от 0 до 30.\n");
+        return 1;
+    }
+
+    for (int i = 0; i <= n; i++) {
+        printf("%2d^%-2d = %10.0f\n", 2, i, pow(2, i));
+    }
+
+    double result = pow(2, n) / 1024.0;
+    printf("\nРезультат: %.0fK\n", result);
+
+    return 0;
+}
+/////lab8-2
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double x, h, y;
+    double a = 2.0, b = 4.0;
+
+    printf("Tabulirovanie funktsii y = 2^x - 2*x^2 - 1\n");
+    printf("Interval: [2; 4]\n");
+    printf("Vvedite shag tabulirovaniya h: ");
+    scanf("%lf", &h);
+
+    if (h <= 0) {
+        printf("Oshibka: shag dolzhen byt bolshe 0.\n");
+        return 1;
+    }
+
+    printf("\n-------------------------\n");
+    printf("|   x   |     f(x)       |\n");
+    printf("-------------------------\n");
+
+    for (x = a; x <= b + 1e-9; x += h) {
+        y = pow(2, x) - 2 * x * x - 1;
+        printf("| %5.2f | %13.6f |\n", x, y);
+    }
+
+    printf("-------------------------\n");
+
+    return 0;
+}
