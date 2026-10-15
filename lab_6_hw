@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+
+    setlocale(LC_ALL, "RUS");
+
+    double x, y;
+
+    printf("Введите координаты точки (x y): ");
+    if (scanf("%lf %lf", &x, &y) != 2)
+
+        printf("Ошибка ввода!\n");
+        return 1;
+    }
+
+    // 1. Внутри круга: x^2 + y^2 <= 2
+    // 2. Ниже прямой: y <= -x
+    // 3. В 4 четверти: x >= 0 и y <= 0
+
+    double inside_circle = (x * x + y * y <= 2.0);
+    double below_line = (y <= -x);
+    double in_fourth = (x >= 0 && y <= 0);
+
+    if (inside_circle && below_line && in_fourth)
+    {
+        printf("Точка (%.2f, %.2f) ПРИНАДЛЕЖИТ заштрихованной области.\n", x, y);
+    }
+    else {
+        printf("Точка (%.2f, %.2f) НЕ ПРИНАДЛЕЖИТ заштрихованной области.\n", x, y);
+    }
+
+    return 0;
+    system("pause");
+}
